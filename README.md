@@ -1,4 +1,4 @@
-# HY-Tietokantasovellus-2020
+# Explore-Helsinki-rastisovellus-2020
 Harjoitustyö kurssille Tietokantasovellus.
 
 Projektin nimi on Explore Helsinki - rastisovellus. Sovelluksella on tarkoitus pystyä etsimään rastikiertelyyn kuuluvia rasteja sekä merkitä niitä suoritetuksi. Sovelluksen inspiraationa on rastikiertely, jota toteutan opiskelijajärjestölleni. Rastikiertely on suunnattu Helsinkiin muuttaneille opiskelijoille, jotka haluavat tutustua kaupunkiin. Aikaa rasteissa käymiseen on rajattomasti. 
