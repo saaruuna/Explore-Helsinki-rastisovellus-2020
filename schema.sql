@@ -1,4 +1,4 @@
-CREATE TABLE users (id SERIAL PRIMARY KEY,
+CREATE TABLE users (user_id SERIAL PRIMARY KEY,
   username TEXT UNIQUE,
   password TEXT);
 CREATE TABLE checkpoints (checkpoint_id SERIAL,
