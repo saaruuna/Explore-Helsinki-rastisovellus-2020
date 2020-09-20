@@ -1,7 +1,7 @@
 CREATE TABLE users (user_id SERIAL PRIMARY KEY,
   username TEXT UNIQUE,
   password TEXT);
-CREATE TABLE checkpoints (checkpoint_id SERIAL,
+CREATE TABLE checkpoints (checkpoint_id SERIAL PRIMARY KEY,
   name TEXT,
   category TEXT,
   description TEXT);
