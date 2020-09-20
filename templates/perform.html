@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<form action="/result" method="POST" enctype="multipart/form-data">
+Choose a checkpoint:
+<p>
+<ul>
+{% for checkpoint in checkpointNames %}
+<li> <input type="radio" name="checkpoint" value="checkpoint_id"> {{ checkpoint }}
+{% endfor %}
+</ul>
+File: <input type="file" name="file">
+<p>
+<input type="submit" value="Send">
+</form>
