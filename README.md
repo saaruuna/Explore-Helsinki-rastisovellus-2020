@@ -2,7 +2,9 @@
 Harjoitustyö kurssille Tietokantasovellus.
 
 VÄLIPALAUTUS 2:
-Sovellukseen voi tutustua osoitteessa http://explore-helsinki.herokuapp.com/. Siellä tulisi olla kirjautumistoiminnalisuus ja näennäinen mahdollisuus "suorittaa" rasti. Etusivulta voi lähteä tarkastelemaan listaa rasteista, kirjautumaan sisään tai luomaan käyttäjätunnus. Kun käyttäjä on kirjautunut sisään, tulisi näkyä rastin suoritustoiminnallisuus. Tämän varsinainen toteutus on vielä vaiheessa. Tähän palautukseen tähtäsin siihen, että sovellus ei kaadu, kun rasti "suoritetaan". Kirjautuminen toimi flask run:illa hyvin, mutta jostain syystä kaatuu herokussa. 
+Sovellukseen voi tutustua osoitteessa http://explore-helsinki.herokuapp.com/. Siellä tulisi olla kirjautumistoiminnalisuus ja näennäinen mahdollisuus "suorittaa" rasti. Etusivulta voi lähteä tarkastelemaan listaa rasteista, kirjautumaan sisään tai luomaan käyttäjätunnus. Kun käyttäjä on kirjautunut sisään, tulisi näkyä rastin suoritustoiminnallisuus. Tämän varsinainen toteutus on vielä vaiheessa. Tähän palautukseen tähtäsin siihen, että sovellus ei kaadu, kun rasti "suoritetaan". 
+
+EDIT 22.9.2020: Kirjautuminen toimii nyt herokussa, toisin kuin kirjoitin palautukseen. Korjaus ei vaatinut muutoksia koodiin.
 
 
 
