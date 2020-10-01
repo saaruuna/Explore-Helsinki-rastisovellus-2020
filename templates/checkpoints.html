@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
+{% block title %}Explore checkpoints{% endblock %}
+{% block content %}
+
+{% if session.user_id %}
+
+<a href="/profile">My profile</a>
+<a href="/logout">Log out</a>
+
+{% else %}
+
+<a href="/">Front page</a>
+<a href="/login">Log in</a>
+<a href="/register">Create user</a>
+
+{% endif %}
+
+<h2>Explore checkpoints</h2>
 
 <p>
 <ul>
@@ -8,4 +26,4 @@
 </ul>
 </p>
 
-<a href="/">Return to front page</a>
+{% endblock %}

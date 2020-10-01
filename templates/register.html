@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<a href="/">Front page</a>
+<a href="/login">Log in</a>
+<a href="/checkpoints">Explore checkpoints</a>
+
+<h2>Register</h2>
+
+{{ message }}
+
 <form action="/register" method="POST">
 <p>Username:<br>
 <input type="text" name="username"></p>
@@ -6,3 +19,5 @@
 <input type="password" name="password"></p>
 <input type="submit" value="Create an account">
 </form>
+
+{% endblock %}

@@ -1,8 +1,16 @@
 <!DOCTYPE html>
-<h> Welcome to the Explore Helsinki checkpoint app!</h>
-<p>
+{% extends "layout.html" %}
+{% block title %}Front page{% endblock %}
+{% block content %}
+
 <a href="/login">Log in</a>
-<p>
-<a href="/register">Create an account</a>
-<p>
+<a href="/register">Create user</a>
 <a href="/checkpoints">Explore checkpoints</a>
+
+<h2>Front page</h2>
+
+{{ message }}
+
+<p> Welcome to the Explore Helsinki Checkpoint App! </p>
+
+{% endblock %}

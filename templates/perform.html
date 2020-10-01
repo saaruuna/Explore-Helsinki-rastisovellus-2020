@@ -1,14 +1,23 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
+{% block title %}Perform checkpoint{% endblock %}
 
-<form action="/result" method="POST" enctype="multipart/form-data">
+{% block content %}
+<a href="/profile">My profile</a>
+<a href="/logout">Log out</a>
+
+<h2>Perform checkpoint</h2>
+
+<form action="/profile" method="POST" enctype="multipart/form-data">
 Choose a checkpoint:
 <p>
 <ul>
 {% for checkpoint in checkpointNames %}
-<li> <input type="radio" name="checkpoint" value="checkpoint_id"> {{ checkpoint }}
+<li> <input type="radio" name="checkpoint" value="5"> {{ checkpoint }}
 {% endfor %}
 </ul>
 File: <input type="file" name="file">
 <p>
 <input type="submit" value="Send">
 </form>
+{% endblock %}

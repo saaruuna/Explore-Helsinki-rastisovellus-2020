@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
+{% block title %}Log in{% endblock %}
+{% block content %}
+
+<a href="/">Front page</a>
+<a href="/register">Create user</a>
+<a href="/checkpoints">Explore checkpoints</a>
+
+<h2>Log in</h2>
+
+{{ message }}
 
 <form action="/login" method="POST">
 <p>Username:<br>
@@ -7,4 +18,5 @@
 <input type="password" name="password"></p>
 <input type="submit" value="Kirjaudu">
 </form>
-If you do not have an account, you can register <a href="/register">here</a>
+
+{% endblock %}

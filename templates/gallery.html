@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+
+<a href="/profile">My profile</a>
+<a href="/logout">Log out</a>
+
+<h2>Gallery</h2>
 
 <p>Gallery of performed checkpoints here</p>
-<a href="/profile">Back to my profile</a>
+{% endblock %}

@@ -1,6 +1,18 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
+{% block title %}Profile{% endblock %}
 
-<p>You are logged in.</p>
+{% block content %}
+
 <a href="/gallery">My gallery</a>
 <a href="/perform">Perform checkpoint</a>
+<a href="/checkpoints">Explore checkpoints</a>
 <a href="/logout">Log out</a>
+
+<h2>Your profile</h2>
+
+<p> You are logged in as {{ session.username }} </p>
+
+{{ message }}
+
+{% endblock %}
