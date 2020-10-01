@@ -1,6 +1,14 @@
 # Explore-Helsinki-rastisovellus-2020
 Harjoitustyö kurssille Tietokantasovellus.
 
+VÄLIPALAUTUS 2:
+Sovellukseen voi tutustua osoitteessa http://explore-helsinki.herokuapp.com/. Siellä tulisi olla kirjautumistoiminnalisuus ja näennäinen mahdollisuus "suorittaa" rasti. Etusivulta voi lähteä tarkastelemaan listaa rasteista, kirjautumaan sisään tai luomaan käyttäjätunnus. Kun käyttäjä on kirjautunut sisään, tulisi näkyä rastin suoritustoiminnallisuus. Tämän varsinainen toteutus on vielä vaiheessa. Tähän palautukseen tähtäsin siihen, että sovellus ei kaadu, kun rasti "suoritetaan". 
+
+EDIT 22.9.2020: Kirjautuminen toimii nyt herokussa, toisin kuin kirjoitin palautukseen. Korjaus ei vaatinut muutoksia koodiin.
+
+
+
+VÄLIPALAUTUS 1:
 Projektin nimi on Explore Helsinki - rastisovellus. Sovelluksella on tarkoitus pystyä etsimään rastikiertelyyn kuuluvia rasteja sekä merkitä niitä suoritetuksi. Sovelluksen inspiraationa on rastikiertely, jota toteutan opiskelijajärjestölleni. Rastikiertely on suunnattu Helsinkiin muuttaneille opiskelijoille, jotka haluavat tutustua kaupunkiin. Aikaa rasteissa käymiseen on rajattomasti. 
 
 Kuvaus sovelluksen keskeisistä toiminnoista:
@@ -14,4 +22,5 @@ Kuvaus sovelluksen keskeisistä toiminnoista:
 - Rastit näkyvät kartalla.
 - Käyttäjä näkee profiilissaan gallerian suoritetuista kohteista. 
 - Ylläpitäjä näkee, mitä rasteja käyttäjä on suorittanut.
+
 
