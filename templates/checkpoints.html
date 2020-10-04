@@ -21,7 +21,7 @@
 <p>
 <ul>
 {% for checkpoint in checkpointsList %}
-<li> {{ checkpoint }}
+<li> {{ checkpoint.name }}, {{ checkpoint.category }}, {{ checkpoint.description }}
 {% endfor %}
 </ul>
 </p>

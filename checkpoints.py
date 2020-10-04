@@ -4,7 +4,7 @@ from flask import redirect, render_template, request, session, flash
 
 
 def get_checkpoints():
-    sql = "SELECT name, category, description FROM checkpoints"
+    sql = "SELECT checkpoint_id, name, category, description FROM checkpoints"
     result = db.session.execute(sql)
     list = result.fetchall()
     return list
@@ -15,9 +15,9 @@ def get_names():
     list = result.fetchall()
     return list
 
-def get_checkpoint_id(name):
-    sql = "SELECT checkpoint_id from checkpoint WHERE name=:name"
-    result = db.session.execute(sql)
+def get_checkpoint_name(checkpoint_id):
+    sql = "SELECT name FROM checkpoints WHERE checkpoint_id=:checkpoint_id"
+    result = db.session.execute(sql, {"checkpoint_id":checkpoint_id})
     return result
 
 def perform_checkpoint(data, user_id, checkpoint_id):

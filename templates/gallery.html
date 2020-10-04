@@ -8,5 +8,18 @@
 
 <h2>Gallery</h2>
 
-<p>Gallery of performed checkpoints here</p>
+<p> Choose a performance: </p>
+
+<form action="/gallery" method="POST">
+<ul>
+  {% for performance in performancesList %}
+  <li>
+  <input type="radio" name="performance" value={{performance.performance_id}}> {{ performance.name }}, {{ performance.category }}
+  </li>
+  {% endfor %}
+</ul>
+<p>
+<input type="submit" value="View picture">
+</form>
+
 {% endblock %}

@@ -31,3 +31,10 @@ def register(username,password):
     except:
         return False
     return login(username,password)
+
+def username():
+    user_id = session.get("user_id",0)
+    sql = "SELECT username FROM users WHERE user_id=:user_id"
+    result = db.session.execute(sql, {"user_id":user_id})
+    username = result.fetchone()
+    return username

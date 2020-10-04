@@ -1,10 +1,9 @@
 from app import app
-from flask import redirect, render_template, request, session, flash
+from flask import redirect, render_template, request, session, make_response
 from db import db
-from werkzeug.utils import secure_filename
-from flask_wtf.file import FileField, FileAllowed, FileRequired
 import users
 import checkpoints
+import performances
 
 @app.route("/")
 def index():
@@ -42,10 +41,30 @@ def register():
 @app.route("/profile", methods=["GET","POST"])
 def profile():
     if request.method == "GET":
-        return render_template("profile.html")
+        user_id = users.user_id()
+        username= users.username()
+        return render_template("profile.html", username=username)
     if request.method == "POST":
-        checkpoint = request.form["checkpoint"]
-        return render_template("profile.html", message="You successfully performed " + checkpoint "!")
+        checkpoint_id = request.form["checkpoint_id"]
+        checkpoint_name = checkpoints.get_checkpoint_name(checkpoint_id)
+        file = request.files["file"]
+        name = file.filename
+
+        if not name.endswith(".jpg"):
+            checkpointsList = checkpoints.get_checkpoints()
+            return render_template("perform.html", message="Please submit a jpg!", checkpointsList=checkpointsList)
+
+        data = file.read()
+
+        if len(data) > 100*1024:
+            checkpointsList = checkpoints.get_checkpoints()
+            return render_template("perform.html", message="File size too large!", checkpointsList=checkpointsList)
+
+        user_id = users.user_id()
+        username= users.username()
+
+        checkpoints.perform_checkpoint(data, user_id, checkpoint_id)
+        return render_template("profile.html", username=username, message="You successfully performed your checkpoint!")
 
 @app.route("/checkpoints")
 def showCheckpoints():
@@ -55,12 +74,25 @@ def showCheckpoints():
 
 @app.route("/perform")
 def perform():
-    checkpointNames = checkpoints.get_names()
-    user_id = users.user_id()
+    checkpointsList = checkpoints.get_checkpoints()
+    return render_template("perform.html", checkpointsList=checkpointsList)
 
-    return render_template("perform.html", checkpointNames=checkpointNames)
-
-
-@app.route("/gallery")
+@app.route("/gallery", methods=["GET","POST"])
 def gallery():
-    return render_template("gallery.html")
+    if request.method == "GET":
+        user_id = users.user_id()
+        performancesList = performances.get_performances(user_id)
+        return render_template("gallery.html", performancesList=performancesList)
+
+    if request.method == "POST":
+        performance_id = request.form["performance"]
+        return redirect("/gallery/" + str(performance_id))
+
+@app.route("/gallery/<string:performance_id>")
+def show(performance_id):
+    sql = "SELECT data FROM performances WHERE performance_id=:performance_id"
+    result = db.session.execute(sql, {"performance_id":performance_id})
+    data = result.fetchone()[0]
+    response = make_response(bytes(data))
+    response.headers.set("Content-Type","image/jpeg")
+    return response
