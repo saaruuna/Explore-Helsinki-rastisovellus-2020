@@ -2,7 +2,7 @@
 Harjoitustyö kurssille Tietokantasovellus.
 
 VÄLIPALALUTUS 3:
-Sovellus toimii nyt käyttäjän puolella tarkoituksenmukaisesti. Käyttäjä pystyy suorittamaan rastin sekä
+Sovellukseen voi tutustua osoitteessa http://explore-helsinki.herokuapp.com/. Sovellus toimii nyt käyttäjän puolella tarkoituksenmukaisesti. Käyttäjä pystyy suorittamaan rastin sekä
 tarkastelemaan suoritettuja rasteja.
 
 TODO:
@@ -12,8 +12,6 @@ TODO:
 - sovelluksen ulkoasun muokkaaminen paremmaksi
 - bugin korjaaminen: session ei pääty jos käyttäjä sulkee selaimen
 
-Bugit:
-- sessio ei pääty, jos
 
 VÄLIPALAUTUS 2:
 Sovellukseen voi tutustua osoitteessa http://explore-helsinki.herokuapp.com/. Siellä tulisi olla kirjautumistoiminnalisuus ja näennäinen mahdollisuus "suorittaa" rasti. Etusivulta voi lähteä tarkastelemaan listaa rasteista, kirjautumaan sisään tai luomaan käyttäjätunnus. Kun käyttäjä on kirjautunut sisään, tulisi näkyä rastin suoritustoiminnallisuus. Tämän varsinainen toteutus on vielä vaiheessa. Tähän palautukseen tähtäsin siihen, että sovellus ei kaadu, kun rasti "suoritetaan".
