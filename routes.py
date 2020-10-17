@@ -90,7 +90,7 @@ def gallery():
 
 @app.route("/gallery/<string:performance_id>")
 def show(performance_id):
-    if "username" in session:
+    if "user_id" in session:
         return performances.view_performance(performance_id)
     else:
         return render_template("login.html",message="Please log in to view your gallery!")
