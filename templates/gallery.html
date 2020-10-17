@@ -14,7 +14,7 @@
 <ul>
   {% for performance in performancesList %}
   <li>
-  <input type="radio" name="performance" value={{performance.performance_id}}> {{ performance.name }}, {{ performance.category }}
+  <input type="radio" name="performance" value={{performance.performance_id}} required> {{ performance.name }}, {{ performance.category }}
   </li>
   {% endfor %}
 </ul>

@@ -42,7 +42,7 @@ def register():
 def profile():
     if request.method == "GET":
         user_id = users.user_id()
-        username= users.username()
+        username = users.username()
         return render_template("profile.html", username=username)
     if request.method == "POST":
         checkpoint_id = request.form["checkpoint_id"]
@@ -61,7 +61,7 @@ def profile():
             return render_template("perform.html", message="File size too large!", checkpointsList=checkpointsList)
 
         user_id = users.user_id()
-        username= users.username()
+        username = users.username()
 
         checkpoints.perform_checkpoint(data, user_id, checkpoint_id)
         return render_template("profile.html", username=username, message="You successfully performed your checkpoint!")
@@ -90,9 +90,7 @@ def gallery():
 
 @app.route("/gallery/<string:performance_id>")
 def show(performance_id):
-    sql = "SELECT data FROM performances WHERE performance_id=:performance_id"
-    result = db.session.execute(sql, {"performance_id":performance_id})
-    data = result.fetchone()[0]
-    response = make_response(bytes(data))
-    response.headers.set("Content-Type","image/jpeg")
-    return response
+    if "username" in session:
+        return performances.view_performance(performance_id)
+    else:
+        return render_template("login.html",message="Please log in to view your gallery!")
