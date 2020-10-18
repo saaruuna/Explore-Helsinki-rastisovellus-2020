@@ -40,31 +40,34 @@ def register():
 
 @app.route("/profile", methods=["GET","POST"])
 def profile():
-    if request.method == "GET":
-        user_id = users.user_id()
-        username = users.username()
-        return render_template("profile.html", username=username)
-    if request.method == "POST":
-        checkpoint_id = request.form["checkpoint_id"]
-        checkpoint_name = checkpoints.get_checkpoint_name(checkpoint_id)
-        file = request.files["file"]
-        name = file.filename
+    if "user_id" in session:
+        if request.method == "GET":
+            user_id = users.user_id()
+            username = users.username()
+            return render_template("profile.html", username=username)
+        if request.method == "POST":
+            checkpoint_id = request.form["checkpoint_id"]
+            checkpoint_name = checkpoints.get_checkpoint_name(checkpoint_id)
+            file = request.files["file"]
+            name = file.filename
 
-        if not name.endswith(".jpg"):
-            checkpointsList = checkpoints.get_checkpoints()
-            return render_template("perform.html", message="Please submit a jpg!", checkpointsList=checkpointsList)
+            if not name.endswith(".jpg"):
+                checkpointsList = checkpoints.get_checkpoints()
+                return render_template("perform.html", message="Please submit a jpg!", checkpointsList=checkpointsList)
 
-        data = file.read()
+            data = file.read()
 
-        if len(data) > 100*1024:
-            checkpointsList = checkpoints.get_checkpoints()
-            return render_template("perform.html", message="File size too large!", checkpointsList=checkpointsList)
+            if len(data) > 100*1024:
+                checkpointsList = checkpoints.get_checkpoints()
+                return render_template("perform.html", message="File size too large!", checkpointsList=checkpointsList)
 
-        user_id = users.user_id()
-        username = users.username()
+            user_id = users.user_id()
+            username = users.username()
 
-        checkpoints.perform_checkpoint(data, user_id, checkpoint_id)
-        return render_template("profile.html", username=username, message="You successfully performed your checkpoint!")
+            checkpoints.perform_checkpoint(data, user_id, checkpoint_id)
+            return render_template("profile.html", username=username, message="You successfully performed your checkpoint!")
+    else:
+        return render_template("login.html",message="Please log in to view your profile!")
 
 @app.route("/checkpoints")
 def showCheckpoints():
@@ -74,19 +77,25 @@ def showCheckpoints():
 
 @app.route("/perform")
 def perform():
-    checkpointsList = checkpoints.get_checkpoints()
-    return render_template("perform.html", checkpointsList=checkpointsList)
+    if "user_id" in session:
+        checkpointsList = checkpoints.get_checkpoints()
+        return render_template("perform.html", checkpointsList=checkpointsList)
+    else:
+        return render_template("login.html",message="Please log in to perform a checkpoint!")
 
 @app.route("/gallery", methods=["GET","POST"])
 def gallery():
-    if request.method == "GET":
-        user_id = users.user_id()
-        performancesList = performances.get_performances(user_id)
-        return render_template("gallery.html", performancesList=performancesList)
+    if "user_id" in session:
+        if request.method == "GET":
+            user_id = users.user_id()
+            performancesList = performances.get_performances(user_id)
+            return render_template("gallery.html", performancesList=performancesList)
 
-    if request.method == "POST":
-        performance_id = request.form["performance"]
-        return redirect("/gallery/" + str(performance_id))
+        if request.method == "POST":
+            performance_id = request.form["performance"]
+            return redirect("/gallery/" + str(performance_id))
+    else:
+        return render_template("login.html",message="Please log in to view your gallery!")
 
 @app.route("/gallery/<string:performance_id>")
 def show(performance_id):
