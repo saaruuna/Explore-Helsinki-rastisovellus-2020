@@ -1,13 +1,23 @@
 # Explore-Helsinki-rastisovellus-2020
 Harjoitustyö kurssille Tietokantasovellus.
 
+LOPULLINEN PALAUTUS:
+Sovellukseen voi tutustua osoitteessa http://explore-helsinki.herokuapp.com/. Sovellus toimii nyt tarkoituksenmukaisesti, ulkoasua on paranneltu ja joitakin bugeja korjailtu. Testailla voi siis seuraavia toiminnallisuuksia:
+
+- käyttäjän luominen
+- sisään kirjautuminen
+- rastien selaaminen
+- rastien suorittaminen
+- suoritettujen rastien tarkastelu
+
+Joitakin suunniteltuja toiminnallisuuksia jäi toteuttamatta, kuten rastikartta ja admin-toiminnallisuus. Sovellusta olisi vielä hauskaa työstää eteenpäin nämä mielessä. 
+
 VÄLIPALALUTUS 3:
 Sovellukseen voi tutustua osoitteessa http://explore-helsinki.herokuapp.com/. Sovellus toimii nyt käyttäjän puolella tarkoituksenmukaisesti. Käyttäjä pystyy suorittamaan rastin sekä
 tarkastelemaan suoritettuja rasteja.
 
 TODO:
 - admin-toiminnallisuus: admin näkee, kuinka monta suoritettua rastia on käyttäjää kohti kategorioittain
-- navigointi: käyttäjä pystyy navigoimaan kategorioiden perusteella
 - timestampin lisääminen suorituksiin tarkastelua varten
 - sovelluksen ulkoasun muokkaaminen paremmaksi
 - bugin korjaaminen: session ei pääty jos käyttäjä sulkee selaimen
