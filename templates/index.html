@@ -3,14 +3,22 @@
 {% block title %}Front page{% endblock %}
 {% block content %}
 
-<a href="/login">Log in</a>
-<a href="/register">Create user</a>
-<a href="/checkpoints">Explore checkpoints</a>
+<nav>
+  <ul>
+    <li><a href="/login">log in</a></li>
+    <li><a href="/register">register user</a></li>
+    <li><a href="/checkpoints">explore checkpoints</a></li>
+  </ul>
+</nav>
 
-<h2>Front page</h2>
+<h2>FRONT PAGE</h2>
 
 {{ message }}
 
-<p> Welcome to the Explore Helsinki Checkpoint App! </p>
+Welcome to the Explore Helsinki Checkpoint App!
+
+<p>
+  Helsinki (/HEL-sink-ee) is the capital of Finland and home to a population of 656,229 people.
+</p>
 
 {% endblock %}

@@ -1,29 +1,53 @@
 <!DOCTYPE html>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  grid-gap: 50px;
+}
+
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+}
+</style>
+
 {% extends "layout.html" %}
 {% block title %}Explore checkpoints{% endblock %}
 {% block content %}
 
 {% if session.user_id %}
-
-<a href="/profile">My profile</a>
-<a href="/logout">Log out</a>
-
+<nav>
+  <ul>
+    <li><a href="/profile">profile</a></li>
+    <li><a href="/logout">log out</a></li>
+  </ul>
+</nav>
 {% else %}
-
-<a href="/">Front page</a>
-<a href="/login">Log in</a>
-<a href="/register">Create user</a>
-
+<nav>
+  <ul>
+    <li><a href="/">front page</a></li>
+    <li><a href="/login">log in</a></li>
+    <li><a href="/register">register user</a></li>
+  </ul>
+</nav>
 {% endif %}
 
-<h2>Explore checkpoints</h2>
+<h2>EXPLORE CHECKPOINTS</h2>
 
 <p>
-<ul>
-{% for checkpoint in checkpointsList %}
-<li> {{ checkpoint.name }}, {{ checkpoint.category }}, {{ checkpoint.description }}
-{% endfor %}
-</ul>
+<div class="grid-container">
+  {% for checkpoint in checkpointsList %}
+  <div class="grid-item">
+    {{ checkpoint.name }}
+    <p>{{ checkpoint.description }}
+    <p>{{ checkpoint.category }}
+  </div>
+  {% endfor %}
+</div>
 </p>
 
 {% endblock %}

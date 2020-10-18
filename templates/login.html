@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 {% extends "layout.html" %}
 {% block title %}Log in{% endblock %}
+
 {% block content %}
 
-<a href="/">Front page</a>
-<a href="/register">Create user</a>
-<a href="/checkpoints">Explore checkpoints</a>
+<nav>
+  <ul>
+    <li><a href="/">front page</a></li>
+    <li><a href="/register">register user</a></li>
+    <li><a href="/checkpoints">explore checkpoints</a></li>
+  </ul>
+</nav>
 
-<h2>Log in</h2>
+<h2>LOG IN</h2>
 
 {{ message }}
 

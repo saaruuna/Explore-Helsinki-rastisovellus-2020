@@ -3,30 +3,33 @@
 {% block title %}Perform checkpoint{% endblock %}
 
 {% block content %}
-<a href="/profile">My profile</a>
-<a href="/logout">Log out</a>
 
-<h2>Perform checkpoint</h2>
+<nav>
+  <ul>
+    <li><a href="/profile">profile</a></li>
+    <li><a href="/logout">log out</a></li>
+  </ul>
+</nav>
+
+<h2>PERFORM CHECKPOINT</h2>
 
 {{ message }}
 
 <p>
 
 <form action="/profile" method="POST" enctype="multipart/form-data">
-
-<label for="checkpoints">Choose a checkpoint:</label>
-<p>
-
-<select name="checkpoint_id", id="checkpoints">
-{% for checkpoint in checkpointsList %}
-    <option value={{checkpoint.checkpoint_id}}> {{checkpoint.name}} </option>
-{% endfor %}
-</select>
-
-<p>
-<p>Upload a picture (.jpg) from your checkpoint:</p>
-File: <input type="file" name="file">
-<p>
-<input type="submit" value="Send">
+  <label for="checkpoints">Choose a checkpoint:</label>
+  <p>
+  <select name="checkpoint_id", id="checkpoints">
+    {% for checkpoint in checkpointsList %}
+        <option value={{checkpoint.checkpoint_id}}> {{checkpoint.name}} </option>
+    {% endfor %}
+  </select>
+  <p>
+  <p>Upload a picture (.jpg) from your checkpoint:</p>
+  File: <input type="file" name="file">
+  <p>
+  <input type="submit" value="Send">
 </form>
+
 {% endblock %}

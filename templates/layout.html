@@ -1,9 +1,14 @@
-<!doctype html>
+<!DOCTYPE HTML>
+<link rel="stylesheet" href="static/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Explore Helsinki Checkpoint App - {% block title %}{% endblock %}</title>
-<h1>Explore Helsinki Checkpoint App</h1>
-{% if session.username %}
-  <p>Logged in as {{ session.username }}</p>
-  <a href="/logout">Log out</a>
-{% endif %}
-{% block content %}{% endblock %}
-<hr>
+
+<body>
+  <div class="header">
+    <h1>Explore Helsinki Checkpoint App</h1>
+  </div>
+
+  {% block content %}{% endblock %}
+
+</body>
